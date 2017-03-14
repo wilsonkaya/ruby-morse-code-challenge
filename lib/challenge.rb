@@ -16,9 +16,31 @@ MORSE_CODE = {
 ## DO NOT CHANGE ANYTHING ABOVE THIS LINE
 
 def decode_morse(morse_code)
-  # Your code here
+result = String.new
+
+single_key = Array.new
+#this will be used for comparison
+  MORSE_CODE.each_key do |key|
+    single_key << key
+  end
+
+word = Array.new
+single_key.select do |x|
+  if x === morse_code
+    word = x
+  end
+end
+
+MORSE_CODE.each do |key, value|
+ if(key === word)
+   result << value
+ end
+end
+
 end
 
 def parse_bits(bits)
   # Your code here
 end
+
+decode_morse(".-")
